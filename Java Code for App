@@ -1,0 +1,27 @@
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    public void convertCurrency(View view){
+        Log.i("Info","Converted");
+        EditText editText= (EditText)findViewById(R.id.editText);
+        String amtInCanadianDollar=editText.getText().toString();
+        double amtInCanadianDollarDouble=Double.parseDouble(amtInCanadianDollar);
+        double amtInRsDouble=amtInCanadianDollarDouble*53.59;
+        String amtInRs=String.format("%.2f", amtInRsDouble);
+        //Log.i("Amount in Indian Rs",amtInRs);
+        Toast.makeText(this, "Candian $"+amtInCanadianDollar+"is Rs:"+amtInRs, Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
